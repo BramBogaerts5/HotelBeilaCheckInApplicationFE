@@ -5,3 +5,15 @@
 p{
   font-family: "rubik-light";
 }
+.spinner {
+  border: 10px solid #6ca33640;
+  border-top: 10px solid #6ca336;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 700ms linear infinite;
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  z-index: 2;
+}
