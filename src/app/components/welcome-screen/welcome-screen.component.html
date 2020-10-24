@@ -9,10 +9,10 @@
     <input id="guestPassword" type="password" formControlName="guestPassword" placeholder="Password"/>
     <input class="guestCheckInBtn" id="btnGuestCheckIn" type="submit" value="Check in!"/>
     <p class="errorMessage" *ngIf="inputEmpty">Please enter your booking name and password.</p>
-    <p class="errorMessage" *ngIf="inputWrong">Wrong booking name and password.</p>
+    <p class="errorMessage" *ngIf="inputWrong">Wrong booking name and/or password.</p>
   </form>
 </div>
 <div class="footer">
-  <a class="footerText" href>Administrator login</a>
+  <a class="footerText" [routerLink]="['/admin']">Administrator login</a>
 </div>
 <div class="spinner" *ngIf="showSpinner"></div>

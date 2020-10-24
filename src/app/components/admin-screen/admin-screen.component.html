@@ -1,1 +1,11 @@
-<p>admin-screen works!</p>
+<div class="center">
+  <img id="beilaLogo" src="../../../assets/images/logoBeila.jpg" alt="Logo Hotel Beila" class="beilaLogo">
+  <form class="adminLoginForm" [formGroup]="adminLoginForm" (ngSubmit)="adminLogIn()">
+    <input id="adminLastName" type="text" formControlName="adminLastName" placeholder="Last name"/>
+    <input id="adminPassword" type="password" formControlName="adminPassword" placeholder="Password"/>
+    <input class="adminLogInBtn" id="btnAdminLogIn" type="submit" value="Log in!"/>
+    <p class="errorMessage" *ngIf="inputEmpty">Please enter your last name and password.</p>
+    <p class="errorMessage" *ngIf="inputWrong">Wrong last name and/or password.</p>
+  </form>
+</div>
+<div class="spinner" *ngIf="showSpinner"></div>

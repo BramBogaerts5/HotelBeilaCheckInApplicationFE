@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {GuestService} from '../../services/guest.service';
 import {Router} from '@angular/router';
 import {StateManagerService} from '../../services/state-manager.service';
 import {Title} from '@angular/platform-browser';
 import {Login} from '../../models/login.model';
 import {HttpResponse} from '@angular/common/http';
+import {LoginService} from '../../services/login.service';
 
 @Component({
   selector: 'app-welcome-screen',
@@ -18,7 +18,7 @@ export class WelcomeScreenComponent implements OnInit {
   inputWrong: boolean = false;
   showSpinner: boolean= false;
 
-  constructor(private guestService: GuestService, private router: Router, private stateManagerService: StateManagerService, public titleService: Title) { }
+  constructor(private loginService: LoginService, private router: Router, private stateManagerService: StateManagerService, public titleService: Title) { }
 
   ngOnInit(): void {
     this.stateManagerService.isLoggedIn = false;
@@ -42,7 +42,7 @@ export class WelcomeScreenComponent implements OnInit {
     }
     if(this.guestCheckinForm.valid){
       let login: Login = this.createLoginObject();
-      this.guestService.login(login).subscribe(res =>
+      this.loginService.login(login).subscribe(res =>
         this.login(res));
     } else{
       this.showSpinner = false;
@@ -73,6 +73,7 @@ export class WelcomeScreenComponent implements OnInit {
     this.stateManagerService.userId = res.body.userId;
     this.stateManagerService.userBookingName = res.body.userLastName;
     this.stateManagerService.token = res.body.token;
+    this.stateManagerService.roleCode = res.body.roleCode;
   }
 
   navigateToNextPage(){

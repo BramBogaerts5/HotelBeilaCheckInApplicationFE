@@ -9,10 +9,12 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './routing/app-routing.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {GuestService} from './services/guest.service';
+import {LoginService} from './services/login.service';
 import {StateManagerService} from './services/state-manager.service';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { ServerErrorComponent } from './server-error/server-error.component';
+import {GuestGuard} from './guards/guest.guard';
+import { AdminMainPageComponent } from './admin-main-page/admin-main-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ServerErrorComponent } from './server-error/server-error.component';
     WelcomeScreenComponent,
     GuestScreenComponent,
     AdminScreenComponent,
-    ServerErrorComponent
+    ServerErrorComponent,
+    AdminMainPageComponent
   ],
   imports: [
     BrowserModule,
@@ -31,8 +34,9 @@ import { ServerErrorComponent } from './server-error/server-error.component';
     ReactiveFormsModule,
   ],
   providers: [
-    GuestService,
+    LoginService,
     StateManagerService,
+    GuestGuard,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,

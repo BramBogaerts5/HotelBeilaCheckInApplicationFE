@@ -7,7 +7,7 @@ import {catchError} from 'rxjs/internal/operators';
 import {of} from 'rxjs';
 
 @Injectable()
-export class GuestService{
+export class LoginService{
   constructor(private http: HttpClient, private router: Router){}
 
   login(login: Login): any{
