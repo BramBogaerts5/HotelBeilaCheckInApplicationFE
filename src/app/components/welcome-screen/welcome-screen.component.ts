@@ -35,7 +35,8 @@ export class WelcomeScreenComponent implements OnInit {
 
   guestCheckIn(){
     this.showSpinner = true;
-    if(this.guestCheckinForm.get('guestLastName').value == null || this.guestCheckinForm.get('guestPassword').value == null){
+    if(this.guestCheckinForm.get('guestLastName').value == '' || this.guestCheckinForm.get('guestPassword').value == ''){
+      this.inputWrong = false;
       this.inputEmpty = true;
       this.showSpinner = false;
     }
@@ -58,11 +59,12 @@ export class WelcomeScreenComponent implements OnInit {
   login(res: HttpResponse<any>){
     if(res.toString().includes('401')){
       this.inputEmpty = false;
+      this.inputWrong = true;
       this.showSpinner = false;
     } else {
       this.resetForm();
       this.fillStateManager(res);
-      this.navigateToNextPage(res);
+      this.navigateToNextPage();
     }
   }
 
@@ -73,9 +75,9 @@ export class WelcomeScreenComponent implements OnInit {
     this.stateManagerService.token = res.body.token;
   }
 
-  navigateToNextPage(res){
-    this.router.navigateByUrl('guestScreen');
+  navigateToNextPage(){
     this.showSpinner = false;
+    this.router.navigateByUrl('/guest');
   }
 
   resetForm(){

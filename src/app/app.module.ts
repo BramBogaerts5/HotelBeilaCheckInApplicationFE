@@ -7,18 +7,20 @@ import { GuestScreenComponent } from './components/guest-screen/guest-screen.com
 import { AdminScreenComponent } from './components/admin-screen/admin-screen.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './routing/app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GuestService} from './services/guest.service';
 import {StateManagerService} from './services/state-manager.service';
 import {TokenInterceptorService} from './services/token-interceptor.service';
+import { ServerErrorComponent } from './server-error/server-error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeScreenComponent,
     GuestScreenComponent,
-    AdminScreenComponent
+    AdminScreenComponent,
+    ServerErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,11 @@ import {TokenInterceptorService} from './services/token-interceptor.service';
   providers: [
     GuestService,
     StateManagerService,
-    TokenInterceptorService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
