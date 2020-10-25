@@ -5,7 +5,7 @@ import {NgModule} from '@angular/core';
 import {ServerErrorComponent} from '../server-error/server-error.component';
 import {GuestGuard} from '../guards/guest.guard';
 import {AdminScreenComponent} from '../components/admin-screen/admin-screen.component';
-import {AdminMainPageComponent} from '../admin-main-page/admin-main-page.component';
+import {AdminMainPageComponent} from '../components/admin-main-page/admin-main-page.component';
 import {AdminGuard} from '../guards/admin.guard';
 
 const routes: Routes = [

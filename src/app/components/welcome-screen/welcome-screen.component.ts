@@ -57,7 +57,7 @@ export class WelcomeScreenComponent implements OnInit {
   }
 
   login(res: HttpResponse<any>){
-    if(res.toString().includes('401')){
+    if(res.toString().includes('401') || res.body.roleCode == 'Admin'){
       this.inputEmpty = false;
       this.inputWrong = true;
       this.showSpinner = false;

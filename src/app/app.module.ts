@@ -14,7 +14,8 @@ import {StateManagerService} from './services/state-manager.service';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import { ServerErrorComponent } from './server-error/server-error.component';
 import {GuestGuard} from './guards/guest.guard';
-import { AdminMainPageComponent } from './admin-main-page/admin-main-page.component';
+import { AdminMainPageComponent } from './components/admin-main-page/admin-main-page.component';
+import {GuestService} from './services/guest.service';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { AdminMainPageComponent } from './admin-main-page/admin-main-page.compon
   ],
   providers: [
     LoginService,
+    GuestService,
     StateManagerService,
     GuestGuard,
     {
