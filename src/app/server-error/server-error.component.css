@@ -1,0 +1,18 @@
+.beilaLogo{
+  width: 500px;
+  display: block;
+  margin: auto;
+}
+.center{
+  display: block;
+  text-align: center;
+}
+button{
+  border:none;
+  color:white;
+  background-color: gray;
+  width: 150px;
+  text-decoration: none;
+  cursor:pointer;
+  font-size: 11pt;
+}
