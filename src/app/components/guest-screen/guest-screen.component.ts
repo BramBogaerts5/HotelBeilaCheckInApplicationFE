@@ -73,6 +73,7 @@ export class GuestScreenComponent implements OnInit {
       this.inputEmpty = false;
       this.inputWrong = true;
       this.showSpinner = false;
+      this.btnSendClicked = false;
     } else {
        this.checkInForm.reset();
        this.inputWrong = false;

@@ -9,21 +9,21 @@
 
   <form [formGroup]="checkInForm" (ngSubmit)="checkIn()">
     <label class="centerText" for="firstName">First name</label>
-    <label class="errorDescription" *ngIf="!firstName.valid && btnSendClicked">Please enter a value between 3 and 100 characters</label>
+    <p class="errorDescription" *ngIf="(checkInForm.get('firstName').hasError('minlength') || checkInForm.get('firstName').hasError('maxlength') && btnSendClicked)">Please enter a value between 3 and 100 characters</p>
     <input id="firstName" type="text" formControlName="firstName"/>
     <label class="centerText" for="lastName">Last name</label>
-    <label class="errorDescription" *ngIf="!lastName.valid && btnSendClicked">Please enter a value between 3 and 150 characters</label>
+    <p class="errorDescription" *ngIf="(checkInForm.get('lastName').hasError('minlength') || checkInForm.get('lastName').hasError('maxlength') && btnSendClicked)">Please enter a value between 3 and 150 characters</p>
     <input id="lastName" type="text" formControlName="lastName"/>
     <label class="centerText" for="birthDate">Date of birth</label>
     <input id="birthDate" type="date" formControlName="birthDate"/>
     <label class="centerText" for="placeOfBirth">Place of birth</label>
-    <label class="errorDescription" *ngIf="!placeOfBirth.valid && btnSendClicked">Please enter a value between 3 and 100 characters</label>
+    <p class="errorDescription" *ngIf="(checkInForm.get('placeOfBirth').hasError('minlength') || checkInForm.get('placeOfBirth').hasError('maxlength') && btnSendClicked)">Please enter a value between 3 and 100 characters</p>
     <input id="placeOfBirth" type="text" formControlName="placeOfBirth"/>
     <label class="centerText" for="nationality">Nationality</label>
-    <label class="errorDescription" *ngIf="!nationality.valid && btnSendClicked">Please enter a value between 3 and 100 characters</label>
+    <p class="errorDescription" *ngIf="(checkInForm.get('nationality').hasError('minlength') || checkInForm.get('nationality').hasError('maxlength') && btnSendClicked)">Please enter a value between 3 and 100 characters</p>
     <input id="nationality" type="text" formControlName="nationality"/>
     <label class="centerText" for="cardNo">Identity card number</label>
-    <label class="errorDescription" *ngIf="!cardNo.valid && btnSendClicked">Please enter a value between 3 and 50 characters</label>
+    <p class="errorDescription" *ngIf="(checkInForm.get('cardNo').hasError('minlength') || checkInForm.get('cardNo').hasError('maxlength') && btnSendClicked)">Please enter a value between 3 and 50 characters</p>
     <input id="cardNo" type="text" formControlName="cardNo"/>
     <label class="centerText" for="checkInHour">Estimated time of arrival</label>
     <input id="checkInHour" type="time" formControlName="checkInHour"/>

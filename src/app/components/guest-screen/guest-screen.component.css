@@ -41,6 +41,7 @@
 .errorDescription {
   color: red;
   font-size: 8pt;
+  text-align: center;
 }
 input{
   display: block;
