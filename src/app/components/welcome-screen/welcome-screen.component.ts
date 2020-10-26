@@ -22,7 +22,7 @@ export class WelcomeScreenComponent implements OnInit {
 
   ngOnInit(): void {
     this.stateManagerService.isLoggedIn = false;
-    this.titleService.setTitle('Hotel Beila - Check In');
+    this.titleService.setTitle('Hotel Beila - Welcome');
     this.createForm();
   }
 
@@ -71,9 +71,16 @@ export class WelcomeScreenComponent implements OnInit {
   fillStateManager(res){
     this.stateManagerService.isLoggedIn = true;
     this.stateManagerService.userId = res.body.userId;
-    this.stateManagerService.userBookingName = res.body.userLastName;
+    this.stateManagerService.userBookingName = res.body.userBookingName;
     this.stateManagerService.token = res.body.token;
     this.stateManagerService.roleCode = res.body.roleCode;
+    this.stateManagerService.checkInDate = res.body.checkInDate;
+    this.stateManagerService.paymentAmount = res.body.paymentAmount;
+    this.stateManagerService.userEmailAddress = res.body.userEmailAddress;
+    this.stateManagerService.password = res.body.password;
+    this.stateManagerService.roleId = res.body.roleId;
+    this.stateManagerService.visible = res.body.visible;
+    this.stateManagerService.payed = res.body.payed;
   }
 
   navigateToNextPage(){

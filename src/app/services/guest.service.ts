@@ -22,8 +22,8 @@ export class GuestService{
     );
   }
 
-  getGuestByName(userLastName: string):any{
-    return this.http.get<Guest>(`${environment.baseApiUrl}guest/${userLastName}/getByName`).pipe(
+  getGuestByName(bookingName: string):any{
+    return this.http.get<Guest>(`${environment.baseApiUrl}guest/${bookingName}/getByName`).pipe(
       catchError(err => this.handleError(err))
     );
   }

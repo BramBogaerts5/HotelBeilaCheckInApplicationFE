@@ -1,5 +1,35 @@
 <div class="center">
   <img id="beilaLogo" src="../../../assets/images/logoBeila.jpg" alt="Logo Hotel Beila" class="beilaLogo">
   <p class="welcomeText">Thank you for checking in by filling in the form below. If you'd like, you can also pay for your stay in advance, if you haven't done this already. You can do this through the payment module below the form. We look forward on welcoming you!</p>
+  <br/>
+  <p class="welcomeText"><b>Booking information:</b></p>
+  <p class="welcomeText">Booking Name: {{bookingName}}</p>
+  <p class="welcomeText">Check In Date: {{checkInDate}}</p>
+  <p class="welcomeText">Booking price: {{paymentAmount}}</p>
 
+  <form [formGroup]="checkInForm" (ngSubmit)="checkIn()">
+    <label class="centerText" for="firstName">First name</label>
+    <label class="errorDescription" *ngIf="!firstName.valid && btnSendClicked">Please enter a value between 3 and 100 characters</label>
+    <input id="firstName" type="text" formControlName="firstName"/>
+    <label class="centerText" for="lastName">Last name</label>
+    <label class="errorDescription" *ngIf="!lastName.valid && btnSendClicked">Please enter a value between 3 and 150 characters</label>
+    <input id="lastName" type="text" formControlName="lastName"/>
+    <label class="centerText" for="birthDate">Date of birth</label>
+    <input id="birthDate" type="date" formControlName="birthDate"/>
+    <label class="centerText" for="placeOfBirth">Place of birth</label>
+    <label class="errorDescription" *ngIf="!placeOfBirth.valid && btnSendClicked">Please enter a value between 3 and 100 characters</label>
+    <input id="placeOfBirth" type="text" formControlName="placeOfBirth"/>
+    <label class="centerText" for="nationality">Nationality</label>
+    <label class="errorDescription" *ngIf="!nationality.valid && btnSendClicked">Please enter a value between 3 and 100 characters</label>
+    <input id="nationality" type="text" formControlName="nationality"/>
+    <label class="centerText" for="cardNo">Identity card number</label>
+    <label class="errorDescription" *ngIf="!cardNo.valid && btnSendClicked">Please enter a value between 3 and 50 characters</label>
+    <input id="cardNo" type="text" formControlName="cardNo"/>
+    <label class="centerText" for="checkInHour">Estimated time of arrival</label>
+    <input id="checkInHour" type="time" formControlName="checkInHour"/>
+    <input id="checkInBtn" class="checkInBtn" type="submit" value="Send"/>
+    <p class="errorMessage" *ngIf="inputWrong">We found some mistakes in your input.</p>
+    <p class="errorMessage" *ngIf="inputEmpty">Please fill in all the fields.</p>
+  </form>
 </div>
+<div class="spinner" *ngIf="showSpinner"></div>

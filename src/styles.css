@@ -17,3 +17,7 @@ p{
   position: fixed;
   z-index: 2;
 }
+.newLine {
+  display: block;
+  clear: both;
+}
