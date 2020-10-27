@@ -71,7 +71,7 @@ export class WelcomeScreenComponent implements OnInit {
   fillStateManager(res){
     this.stateManagerService.isLoggedIn = true;
     this.stateManagerService.userId = res.body.userId;
-    this.stateManagerService.userBookingName = res.body.userBookingName;
+    this.stateManagerService.userBookingName = res.body.bookingName;
     this.stateManagerService.token = res.body.token;
     this.stateManagerService.roleCode = res.body.roleCode;
     this.stateManagerService.checkInDate = res.body.checkInDate;

@@ -33,6 +33,11 @@
   cursor:pointer;
   font-size: 11pt;
 }
+.succesMessage{
+  color: green;
+  font-size: 8pt;
+  text-align: center;
+}
 .errorMessage{
   color: red;
   font-size: 8pt;

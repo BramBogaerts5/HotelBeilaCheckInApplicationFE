@@ -16,6 +16,7 @@ export class GuestScreenComponent implements OnInit {
   checkInForm: FormGroup;
   inputWrong: boolean = false;
   inputEmpty: boolean = false;
+  inputSent: boolean = false;
   bookingName: string = 'Unknown';
   checkInDate: string = 'Unknown';
   paymentAmount: number = null;
@@ -48,6 +49,7 @@ export class GuestScreenComponent implements OnInit {
   checkIn(){
     this.showSpinner = true;
     this.btnSendClicked = true;
+    this.inputSent = false;
     if(this.checkInForm.get('firstName').value == '' ||
         this.checkInForm.get('lastName').value == '' ||
         this.checkInForm.get('birthDate').value == null ||
@@ -79,6 +81,7 @@ export class GuestScreenComponent implements OnInit {
        this.inputWrong = false;
        this.inputEmpty = false;
        this.showSpinner = false;
+       this.inputSent = true;
     }
   }
 
@@ -87,7 +90,6 @@ export class GuestScreenComponent implements OnInit {
     let bookingName: string = this.stateManagerService.userBookingName;
     let paymentAmount : number = this.stateManagerService.paymentAmount;
     let checkInDate : string = this.stateManagerService.checkInDate;
-    let token : string = this.stateManagerService.token;
     let roleCode : string = this.stateManagerService.roleCode;
     let userFirstName: string = this.checkInForm.get('firstName').value;
     let userLastName: string = this.checkInForm.get('lastName').value;
@@ -104,6 +106,6 @@ export class GuestScreenComponent implements OnInit {
     let payed: boolean = this.stateManagerService.payed;
 
     return new Guest(userId,bookingName,userFirstName,userLastName,userEmailAddress,password,roleId, roleCode,
-      token,checkInDate, checkInHour, paymentAmount,payed, checkedIn, birthDate, placeOfBirth, nationality, cardNo, visible);
+      null,checkInDate, checkInHour, paymentAmount,payed, checkedIn, birthDate, placeOfBirth, nationality, cardNo, visible);
   }
 }

@@ -9,27 +9,28 @@
 
   <form [formGroup]="checkInForm" (ngSubmit)="checkIn()">
     <label class="centerText" for="firstName">First name</label>
-    <p class="errorDescription" *ngIf="(checkInForm.get('firstName').hasError('minlength') || checkInForm.get('firstName').hasError('maxlength') && btnSendClicked)">Please enter a value between 3 and 100 characters</p>
+    <p class="errorDescription" *ngIf="btnSendClicked && (checkInForm.get('firstName').hasError('minlength') || checkInForm.get('firstName').hasError('maxlength') && checkInForm.get('firstName').untouched)">Please enter a value between 3 and 100 characters</p>
     <input id="firstName" type="text" formControlName="firstName"/>
     <label class="centerText" for="lastName">Last name</label>
-    <p class="errorDescription" *ngIf="(checkInForm.get('lastName').hasError('minlength') || checkInForm.get('lastName').hasError('maxlength') && btnSendClicked)">Please enter a value between 3 and 150 characters</p>
+    <p class="errorDescription" *ngIf="btnSendClicked && (checkInForm.get('lastName').hasError('minlength') || checkInForm.get('lastName').hasError('maxlength') && checkInForm.get('lastName').untouched)">Please enter a value between 3 and 150 characters</p>
     <input id="lastName" type="text" formControlName="lastName"/>
     <label class="centerText" for="birthDate">Date of birth</label>
     <input id="birthDate" type="date" formControlName="birthDate"/>
     <label class="centerText" for="placeOfBirth">Place of birth</label>
-    <p class="errorDescription" *ngIf="(checkInForm.get('placeOfBirth').hasError('minlength') || checkInForm.get('placeOfBirth').hasError('maxlength') && btnSendClicked)">Please enter a value between 3 and 100 characters</p>
+    <p class="errorDescription" *ngIf="btnSendClicked && (checkInForm.get('placeOfBirth').hasError('minlength') || checkInForm.get('placeOfBirth').hasError('maxlength') && checkInForm.get('placeOfBirth').untouched)">Please enter a value between 3 and 100 characters</p>
     <input id="placeOfBirth" type="text" formControlName="placeOfBirth"/>
     <label class="centerText" for="nationality">Nationality</label>
-    <p class="errorDescription" *ngIf="(checkInForm.get('nationality').hasError('minlength') || checkInForm.get('nationality').hasError('maxlength') && btnSendClicked)">Please enter a value between 3 and 100 characters</p>
+    <p class="errorDescription" *ngIf="btnSendClicked && (checkInForm.get('nationality').hasError('minlength') || checkInForm.get('nationality').hasError('maxlength') && checkInForm.get('nationality').untouched)">Please enter a value between 3 and 100 characters</p>
     <input id="nationality" type="text" formControlName="nationality"/>
     <label class="centerText" for="cardNo">Identity card number</label>
-    <p class="errorDescription" *ngIf="(checkInForm.get('cardNo').hasError('minlength') || checkInForm.get('cardNo').hasError('maxlength') && btnSendClicked)">Please enter a value between 3 and 50 characters</p>
+    <p class="errorDescription" *ngIf="btnSendClicked && (checkInForm.get('cardNo').hasError('minlength') || checkInForm.get('cardNo').hasError('maxlength') && checkInForm.get('cardNo').untouched)">Please enter a value between 3 and 50 characters</p>
     <input id="cardNo" type="text" formControlName="cardNo"/>
     <label class="centerText" for="checkInHour">Estimated time of arrival</label>
     <input id="checkInHour" type="time" formControlName="checkInHour"/>
     <input id="checkInBtn" class="checkInBtn" type="submit" value="Send"/>
     <p class="errorMessage" *ngIf="inputWrong">We found some mistakes in your input.</p>
     <p class="errorMessage" *ngIf="inputEmpty">Please fill in all the fields.</p>
+    <p class="succesMessage" *ngIf="inputSent">Thank you for checking in!</p>
   </form>
 </div>
 <div class="spinner" *ngIf="showSpinner"></div>
