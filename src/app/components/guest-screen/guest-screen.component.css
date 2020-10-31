@@ -3,7 +3,6 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 150px;
   margin-bottom: 40px;
 }
 .center{
@@ -33,6 +32,26 @@
   cursor:pointer;
   font-size: 11pt;
 }
+.payBtn{
+  border:none;
+  border-radius: 3px;
+  color:white;
+  background-color: green;
+  width: 200px;
+  height: 30px;
+  text-decoration: none;
+  cursor:pointer;
+  font-size: 11pt;
+  left: 50%;
+  right: 50%;
+  position: absolute;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.page{
+  overflow: scroll hidden;
+  overflow-x: hidden;
+}
 .succesMessage{
   color: green;
   font-size: 8pt;
@@ -59,4 +78,7 @@ input{
   font-size: 12pt;
   border: 1px solid gray;
   border-radius: 3px;
+}
+form{
+  margin-top: -30px;
 }

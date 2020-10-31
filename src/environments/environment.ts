@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseApiUrl: 'http://localhost:53818/api/'
+  baseApiUrl: 'http://localhost:53818/api/',
+  mollieApi: 'https://api.mollie.com/v2/payments'
 };
 
 /*

@@ -6,6 +6,8 @@ import {Title} from '@angular/platform-browser';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Guest} from '../../models/guest.model';
 import {HttpResponse} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+import {Mollie} from 'mollie-api';
 
 @Component({
   selector: 'app-guest-screen',
@@ -107,5 +109,17 @@ export class GuestScreenComponent implements OnInit {
 
     return new Guest(userId,bookingName,userFirstName,userLastName,userEmailAddress,password,roleId, roleCode,
       null,checkInDate, checkInHour, paymentAmount,payed, checkedIn, birthDate, placeOfBirth, nationality, cardNo, visible);
+  }
+
+  payStay(){
+    const mollie: Mollie = new Mollie({
+      apiKey: 'test_5gymzRPzqQrkRkUtfHj9B4a4thvj5H',
+    });
+    mollie.payments.create({
+      amount: this.stateManagerService.paymentAmount,
+      description: 'Payment for your stay in Hotel Beila',
+      redirectUrl: environment.baseApiUrl,
+      webhookUrl: environment.baseApiUrl,
+    });
   }
 }

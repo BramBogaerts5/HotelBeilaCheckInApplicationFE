@@ -3,7 +3,10 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 75px;
+}
+.page{
+  overflow: scroll hidden;
+  overflow-x: hidden;
 }
 .center{
   position: absolute;

@@ -1,4 +1,4 @@
-<div class="center">
+<div class="center, page">
   <img id="beilaLogo" src="../../../assets/images/logoBeila.jpg" alt="Logo Hotel Beila" class="beilaLogo">
   <p class="welcomeText">Thank you for checking in by filling in the form below. If you'd like, you can also pay for your stay in advance, if you haven't done this already. You can do this through the payment module below the form. We look forward on welcoming you!</p>
   <br/>
@@ -31,6 +31,9 @@
     <p class="errorMessage" *ngIf="inputWrong">We found some mistakes in your input.</p>
     <p class="errorMessage" *ngIf="inputEmpty">Please fill in all the fields.</p>
     <p class="succesMessage" *ngIf="inputSent">Thank you for checking in!</p>
+    <br/>
   </form>
+  <br/>
+  <button id="payYourSayBtn" class="payBtn" (click)="payStay()">Pay for your stay now!</button>
 </div>
 <div class="spinner" *ngIf="showSpinner"></div>
