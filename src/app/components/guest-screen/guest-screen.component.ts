@@ -6,8 +6,7 @@ import {Title} from '@angular/platform-browser';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Guest} from '../../models/guest.model';
 import {HttpResponse} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import {Mollie} from 'mollie-api';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-guest-screen',
@@ -21,19 +20,33 @@ export class GuestScreenComponent implements OnInit {
   inputSent: boolean = false;
   bookingName: string = 'Unknown';
   checkInDate: string = 'Unknown';
-  paymentAmount: number = null;
+  paymentAmount: string = null;
   showSpinner: boolean = false;
   btnSendClicked: boolean = false;
+  alreadyPaid: boolean = false;
+  paidBtnClicked: boolean = false;
 
-  constructor(private router: Router, private guestService: GuestService, private stateManagerService: StateManagerService, public titleService: Title) { }
+  constructor(private router: Router, private cookieService: CookieService, private guestService: GuestService, public titleService: Title) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('Hotel Beila - Check In');
-    this.bookingName = this.stateManagerService.userBookingName;
-    this.checkInDate = this.stateManagerService.checkInDate;
-    this.paymentAmount = this.stateManagerService.paymentAmount;
+    this.guestService.getGuestById(+this.cookieService.get('guestId')).subscribe(res =>
+      this.fillCredentials(res)
+    );
     this.showSpinner = false;
     this.createForm();
+  }
+
+  fillCredentials(res){
+    this.bookingName = this.cookieService.get('userBookingName');
+    this.checkInDate = this.cookieService.get('checkInDate');
+    this.cookieService.set('paymentAmount', res.paymentAmount);
+    this.cookieService.set('payed', res.payed);
+    this.paymentAmount = res.paymentAmount;
+    if(this.paymentAmount == '0'){
+      this.paymentAmount = 'this booking is already paid!';
+      this.alreadyPaid = true;
+    }
   }
 
   createForm(){
@@ -65,7 +78,7 @@ export class GuestScreenComponent implements OnInit {
     }
     if(this.checkInForm.valid){
       let guest: Guest = this.createGuestObject();
-      this.guestService.putGuest(this.stateManagerService.userId, guest).subscribe(res =>
+      this.guestService.putGuest(guest.userId, guest).subscribe(res =>
         this.sendGuestInformation(res));
     } else{
       this.showSpinner = false;
@@ -88,11 +101,11 @@ export class GuestScreenComponent implements OnInit {
   }
 
   createGuestObject(): Guest{
-    let userId: number = this.stateManagerService.userId;
-    let bookingName: string = this.stateManagerService.userBookingName;
-    let paymentAmount : number = this.stateManagerService.paymentAmount;
-    let checkInDate : string = this.stateManagerService.checkInDate;
-    let roleCode : string = this.stateManagerService.roleCode;
+    let userId: number = +this.cookieService.get('guestId');
+    let bookingName: string = this.cookieService.get('userBookingName');
+    let paymentAmount : number = +this.cookieService.get('paymentAmount');
+    let checkInDate : string = this.cookieService.get('checkInDate');
+    let roleCode : string = this.cookieService.get('roleCode');
     let userFirstName: string = this.checkInForm.get('firstName').value;
     let userLastName: string = this.checkInForm.get('lastName').value;
     let checkInHour: string = this.checkInForm.get('checkInHour').value;
@@ -100,26 +113,24 @@ export class GuestScreenComponent implements OnInit {
     let cardNo: string = this.checkInForm.get('cardNo').value;
     let placeOfBirth: string = this.checkInForm.get('placeOfBirth').value;
     let birthDate: string = this.checkInForm.get('birthDate').value;
-    let userEmailAddress: string =  this.stateManagerService.userEmailAddress;
-    let password: string = this.stateManagerService.password;
+    let userEmailAddress: string = this.cookieService.get('userEmailAddress');
+    let password: string = this.cookieService.get('password');
     let checkedIn: boolean = true;
-    let roleId: number = this.stateManagerService.roleId;
-    let visible: boolean = this.stateManagerService.visible;
-    let payed: boolean = this.stateManagerService.payed;
+    let roleId: number = +this.cookieService.get('roleId');
+    let visible: boolean = JSON.parse(this.cookieService.get('visible'));
+    let payed: boolean = JSON.parse(this.cookieService.get('payed'));
 
     return new Guest(userId,bookingName,userFirstName,userLastName,userEmailAddress,password,roleId, roleCode,
       null,checkInDate, checkInHour, paymentAmount,payed, checkedIn, birthDate, placeOfBirth, nationality, cardNo, visible);
   }
 
+
   payStay(){
-    const mollie: Mollie = new Mollie({
-      apiKey: 'test_5gymzRPzqQrkRkUtfHj9B4a4thvj5H',
-    });
-    mollie.payments.create({
-      amount: this.stateManagerService.paymentAmount,
-      description: 'Payment for your stay in Hotel Beila',
-      redirectUrl: environment.baseApiUrl,
-      webhookUrl: environment.baseApiUrl,
-    });
+    this.paidBtnClicked = true;
+    if(!this.alreadyPaid){
+      this.guestService.payThroughMollie(+this.cookieService.get('paymentAmount'), this.cookieService.get('userBookingName')).subscribe(res => {
+        window.location.href = res.body.redirectUrl;
+      });
+    }
   }
 }

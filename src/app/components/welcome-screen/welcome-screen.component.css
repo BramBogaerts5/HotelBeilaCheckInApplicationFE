@@ -19,6 +19,8 @@
   text-align: center;
   margin-top: -50px;
   margin-bottom: 50px;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 .guestCheckinForm{
   width: 100%;
@@ -32,6 +34,7 @@
   text-decoration: none;
   cursor:pointer;
   font-size: 11pt;
+  margin-bottom: 40px;
 }
 .errorMessage{
   color: red;

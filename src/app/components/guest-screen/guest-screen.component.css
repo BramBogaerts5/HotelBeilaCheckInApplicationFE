@@ -22,6 +22,8 @@
   text-align: center;
   margin-top: -50px;
   margin-bottom: 50px;
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 .checkInBtn{
   border:none;
@@ -56,11 +58,19 @@
   color: green;
   font-size: 8pt;
   text-align: center;
+  margin-top: 5px;
 }
 .errorMessage{
   color: red;
   font-size: 8pt;
   text-align: center;
+}
+.paidMessage{
+  color: red;
+  font-size: 8pt;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 .errorDescription {
   color: red;

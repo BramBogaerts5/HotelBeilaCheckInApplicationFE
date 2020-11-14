@@ -6,6 +6,7 @@ import {StateManagerService} from '../../services/state-manager.service';
 import {Title} from '@angular/platform-browser';
 import {Login} from '../../models/login.model';
 import {HttpResponse} from '@angular/common/http';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-admin-screen',
@@ -18,7 +19,7 @@ export class AdminScreenComponent implements OnInit {
   inputWrong: boolean = false;
   showSpinner: boolean = false;
 
-  constructor(private loginService: LoginService, private router: Router, private stateManagerService: StateManagerService, public titleService: Title) { }
+  constructor(private loginService: LoginService, private router: Router, private stateManagerService: StateManagerService, public titleService: Title, private cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.stateManagerService.isLoggedIn = false;
@@ -70,10 +71,10 @@ export class AdminScreenComponent implements OnInit {
 
   fillStateManager(res){
     this.stateManagerService.isLoggedIn = true;
-    this.stateManagerService.userId = res.body.userId;
-    this.stateManagerService.userBookingName = res.body.userLastName;
-    this.stateManagerService.token = res.body.token;
-    this.stateManagerService.roleCode = res.body.roleCode;
+    this.cookieService.set('userId', res.body.userId);
+    this.cookieService.set('userBookingName', res.body.userLastName);
+    this.cookieService.set('token', res.body.token);
+    this.cookieService.set('roleCode', res.body.roleCode);
   }
 
   navigateToNextPage(){

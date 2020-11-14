@@ -10,9 +10,9 @@ import {AdminGuard} from '../guards/admin.guard';
 
 const routes: Routes = [
   {path: 'login', component: WelcomeScreenComponent},
-  {path: 'guest', component: GuestScreenComponent},
+  {path: 'guest', component: GuestScreenComponent, canActivate: [GuestGuard]},
   {path: 'admin', component: AdminScreenComponent},
-  {path: 'adminMain', component: AdminMainPageComponent, canActivate: [AdminGuard]},
+  {path: 'adminMain', component: AdminMainPageComponent},
   {path: 'server-error', component: ServerErrorComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: '**', component: ServerErrorComponent}

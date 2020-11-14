@@ -6,6 +6,7 @@ import {Title} from '@angular/platform-browser';
 import {Login} from '../../models/login.model';
 import {HttpResponse} from '@angular/common/http';
 import {LoginService} from '../../services/login.service';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-welcome-screen',
@@ -18,7 +19,7 @@ export class WelcomeScreenComponent implements OnInit {
   inputWrong: boolean = false;
   showSpinner: boolean= false;
 
-  constructor(private loginService: LoginService, private router: Router, private stateManagerService: StateManagerService, public titleService: Title) { }
+  constructor(private cookieService: CookieService, private loginService: LoginService, private router: Router, private stateManagerService: StateManagerService, public titleService: Title) { }
 
   ngOnInit(): void {
     this.stateManagerService.isLoggedIn = false;
@@ -70,17 +71,17 @@ export class WelcomeScreenComponent implements OnInit {
 
   fillStateManager(res){
     this.stateManagerService.isLoggedIn = true;
-    this.stateManagerService.userId = res.body.userId;
-    this.stateManagerService.userBookingName = res.body.bookingName;
-    this.stateManagerService.token = res.body.token;
-    this.stateManagerService.roleCode = res.body.roleCode;
-    this.stateManagerService.checkInDate = res.body.checkInDate;
-    this.stateManagerService.paymentAmount = res.body.paymentAmount;
-    this.stateManagerService.userEmailAddress = res.body.userEmailAddress;
-    this.stateManagerService.password = res.body.password;
-    this.stateManagerService.roleId = res.body.roleId;
-    this.stateManagerService.visible = res.body.visible;
-    this.stateManagerService.payed = res.body.payed;
+    this.cookieService.set('guestId', res.body.userId);
+    this.cookieService.set('userBookingName', res.body.bookingName);
+    this.cookieService.set('guestToken', res.body.token);
+    this.cookieService.set('roleCode', res.body.roleCode);
+    this.cookieService.set('checkInDate', res.body.checkInDate);
+    this.cookieService.set('paymentAmount', res.body.paymentAmount);
+    this.cookieService.set('userEmailAddress', res.body.userEmailAddress);
+    this.cookieService.set('password', res.body.password);
+    this.cookieService.set('roleId', res.body.roleId);
+    this.cookieService.set('visible', res.body.visible);
+    this.cookieService.set('payed', res.body.payed);
   }
 
   navigateToNextPage(){

@@ -1,0 +1,28 @@
+.beilaLogo{
+  width: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+.center{
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.page{
+  overflow: scroll hidden;
+  overflow-x: hidden;
+}
+.guestOverview{
+  border: gray solid 1px;
+  height: 600px;
+  width: 600px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: scroll;
+  overflow-x: hidden;
+}

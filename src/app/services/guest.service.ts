@@ -40,7 +40,14 @@ export class GuestService{
     );
   }
 
+  payThroughMollie(value: number, bookingName: string): any{
+    return this.http.get(`${environment.baseApiUrl}guest/payment/${bookingName}/${value}`,{observe:'response'}).pipe(
+      catchError(err => this.handleError(err))
+    );
+  }
+
   handleError(err: HttpErrorResponse) {
+    console.log(err);
     if (err.status == 401) {
       return of(err.message);
     } else {
