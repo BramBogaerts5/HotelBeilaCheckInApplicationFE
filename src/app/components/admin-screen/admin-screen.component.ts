@@ -75,6 +75,7 @@ export class AdminScreenComponent implements OnInit {
     this.cookieService.set('userBookingName', res.body.userLastName);
     this.cookieService.set('token', res.body.token);
     this.cookieService.set('roleCode', res.body.roleCode);
+    this.cookieService.set('guestToken', res.body.token);
   }
 
   navigateToNextPage(){

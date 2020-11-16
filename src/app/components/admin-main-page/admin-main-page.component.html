@@ -1,7 +1,19 @@
 <div class="center, page">
   <img id="beilaLogo" src="../../../assets/images/logoBeila.jpg" alt="Logo Hotel Beila" class="beilaLogo">
+  <button class="addGuestBtn" (click)="addGuest()">Add a new guest!</button>
+  <app-add-guest *ngIf="addGuestBtnClicked"></app-add-guest>
   <table class="guestOverview">
-
+    <tr class="guestRow" *ngFor="let guest of guestList">
+      <div class="guestColumn bigWidth">
+        <p class="guestLabel block">Booking name: </p><p class="block">{{guest.bookingName}}</p>
+      </div>
+      <div class="guestColumn">
+        <p class="guestLabel block">Check-in-date: </p><p class="block">{{guest.checkInDate}}</p>
+      </div>
+      <div class="guestColumn smallWidth">
+        <p class="guestLabel block">Checked in: </p><p class="block green" *ngIf="guest.checkedIn">Yes!</p><p class="block red" *ngIf="!guest.checkedIn">No</p>
+      </div>
+    </tr>
   </table>
 </div>
 <div class="spinner" *ngIf="showSpinner"></div>

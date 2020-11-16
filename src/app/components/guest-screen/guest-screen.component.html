@@ -34,7 +34,7 @@
     <br/>
   </form>
   <br/>
-  <button id="payYourSayBtn" class="payBtn" (click)="payStay()">Pay for your stay now!</button>
+  <button class="payBtn" (click)="payStay()">Pay for your stay now!</button>
   <p class="paidMessage" *ngIf="alreadyPaid && paidBtnClicked">This booking is already paid!</p>
 </div>
 <div class="spinner" *ngIf="showSpinner"></div>

@@ -34,6 +34,12 @@ export class GuestService{
     );
   }
 
+  postGuest(newGuest: Guest): Observable<any>{
+    return this.http.post<Guest>(`${environment.baseApiUrl}guest`, newGuest, {observe: 'response'}).pipe(
+      catchError(err => this.handleError(err))
+    );
+  }
+
   changeVisibility(userId: number): Observable<any>{
     return this.http.post<Guest>(`${environment.baseApiUrl}guest/${userId}/visible`, userId,{observe:'response'}).pipe(
       catchError(err => this.handleError(err))
