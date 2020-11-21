@@ -18,6 +18,7 @@ import { AdminMainPageComponent } from './components/admin-main-page/admin-main-
 import {GuestService} from './services/guest.service';
 import {AdminGuard} from './guards/admin.guard';
 import { AddGuestComponent } from './components/add-guest/add-guest.component';
+import { GuestDetailComponent } from './components/guest-detail/guest-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddGuestComponent } from './components/add-guest/add-guest.component';
     AdminScreenComponent,
     ServerErrorComponent,
     AdminMainPageComponent,
-    AddGuestComponent
+    AddGuestComponent,
+    GuestDetailComponent
   ],
   imports: [
     BrowserModule,

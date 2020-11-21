@@ -11,7 +11,9 @@ import {Title} from '@angular/platform-browser';
 export class AdminMainPageComponent implements OnInit {
   showSpinner: boolean = false;
   addGuestBtnClicked: boolean = false;
+  guestDetailBtnClicked: boolean = false;
   guestList: Guest[];
+  parentModel: Guest;
 
   constructor(private guestService: GuestService, private titleService: Title) { }
 
@@ -32,7 +34,14 @@ export class AdminMainPageComponent implements OnInit {
       this.addGuestBtnClicked = false;
     } else {
       this.addGuestBtnClicked = true;
+      this.guestDetailBtnClicked = false;
     }
+  }
+
+  selectGuest(guest: Guest){
+    this.guestDetailBtnClicked = true;
+    this.addGuestBtnClicked = false;
+    this.parentModel = guest;
   }
 
 }

@@ -74,6 +74,7 @@ export class WelcomeScreenComponent implements OnInit {
     this.cookieService.set('guestId', res.body.userId);
     this.cookieService.set('userBookingName', res.body.bookingName);
     this.cookieService.set('guestToken', res.body.token);
+    console.log(res.body.roleCode);
     this.cookieService.set('roleCode', res.body.roleCode);
     this.cookieService.set('checkInDate', res.body.checkInDate);
     this.cookieService.set('paymentAmount', res.body.paymentAmount);

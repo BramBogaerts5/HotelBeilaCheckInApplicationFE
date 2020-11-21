@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'login', component: WelcomeScreenComponent},
   {path: 'guest', component: GuestScreenComponent, canActivate: [GuestGuard]},
   {path: 'admin', component: AdminScreenComponent},
-  {path: 'adminMain', component: AdminMainPageComponent},
+  {path: 'adminMain', component: AdminMainPageComponent, canActivate: [AdminGuard]},
   {path: 'server-error', component: ServerErrorComponent},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: '**', component: ServerErrorComponent}

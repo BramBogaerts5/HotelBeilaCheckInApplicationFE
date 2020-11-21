@@ -46,6 +46,12 @@ export class GuestService{
     );
   }
 
+  changeVisibilityBeforeDate(date: string): Observable<any>{
+    return this.http.post<Guest>(`${environment.baseApiUrl}guest/deleteBeforeDate/${date}`, date,{observe:'response'}).pipe(
+      catchError(err => this.handleError(err))
+    );
+  }
+
   payThroughMollie(value: number, bookingName: string): any{
     return this.http.get(`${environment.baseApiUrl}guest/payment/${bookingName}/${value}`,{observe:'response'}).pipe(
       catchError(err => this.handleError(err))

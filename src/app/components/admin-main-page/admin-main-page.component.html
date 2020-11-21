@@ -2,8 +2,9 @@
   <img id="beilaLogo" src="../../../assets/images/logoBeila.jpg" alt="Logo Hotel Beila" class="beilaLogo">
   <button class="addGuestBtn" (click)="addGuest()">Add a new guest!</button>
   <app-add-guest *ngIf="addGuestBtnClicked"></app-add-guest>
+  <app-guest-detail *ngIf="guestDetailBtnClicked" [guest]="parentModel"></app-guest-detail>
   <table class="guestOverview">
-    <tr class="guestRow" *ngFor="let guest of guestList">
+    <tr class="guestRow" *ngFor="let guest of guestList" (click)="selectGuest(guest)">
       <div class="guestColumn bigWidth">
         <p class="guestLabel block">Booking name: </p><p class="block">{{guest.bookingName}}</p>
       </div>
