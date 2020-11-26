@@ -1,0 +1,36 @@
+<div class="guestDetailContainer">
+  <table>
+    <tr class="guestRow">
+      <td class="guestColumn">
+        <p class="guestLabel block">Booking name: </p><p class="block">{{guest.bookingName}}</p><br/>
+        <p class="guestLabel block">First name: </p><p class="block">{{guest.userFirstName}}</p><br/>
+        <p class="guestLabel block">Last name: </p><p class="block">{{guest.userLastName}}</p><br/>
+        <p class="guestLabel block">Email: </p><p class="block">{{guest.userEmailAddress}}</p>
+      </td>
+      <td class="guestColumn">
+        <p class="guestLabel block">Check-in-date: </p><p class="block">{{guest.checkInDate}}</p><br>
+        <p class="guestLabel block">Hour of arrival: </p><p class="block">{{guest.checkInHour}}</p><br>
+        <p class="guestLabel block">Remaining amount to pay: </p><p class="block">{{guest.paymentAmount}} euro</p>
+      </td>
+    </tr>
+    <tr class="guestRow">
+      <td class="guestColumn">
+        <p class="guestLabel block">Birth date: </p><p class="block">{{guest.birthDate}}</p><br>
+        <p class="guestLabel block">Place of birth: </p><p class="block">{{guest.placeOfBirth}}</p>
+      </td>
+      <td class="guestColumn">
+        <p class="guestLabel block">Nationality: </p><p class="block">{{guest.placeOfBirth}}</p><br>
+        <p class="guestLabel block">Identity card no.: </p><p class="block">{{guest.cardNo}}</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="deleteGuest()">Delete this guest from list</button>
+      </td>
+      <td>
+        <button (click)="deleteAllGuests()">Delete all guests prior of or on this check-in-date</button>
+      </td>
+    </tr>
+  </table>
+</div>
+<div class="spinner" *ngIf="showSpinner"></div>

@@ -23,9 +23,11 @@ export class AdminMainPageComponent implements OnInit {
   }
 
   loadData(){
+    this.showSpinner = true;
     this.guestService.getAllGuests().subscribe(res => {
       this.guestList = res;
       this.guestList.sort((a,b)=>(a.checkInDate<b.checkInDate ? -1 : 1));
+      this.showSpinner = false;
     });
   }
 

@@ -1,0 +1,51 @@
+.guestDetailContainer{
+  width: 598px;
+  height: 190px;
+  border: gray solid 1px;
+  border-bottom: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+.guestLabel{
+  color: darkgray;
+  font-size: 9pt;
+  display: inline;
+  margin-bottom: 2px;
+}
+.guestRow{
+  border-bottom: lightgray solid 1px;
+  width: auto;
+  height: auto;
+  display: block;
+  margin-top: 6px;
+  padding: 5px;
+}
+.guestColumn{
+  width: 290px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+.guestColumn:hover{
+  overflow: visible;
+}
+table{
+  display: block;
+}
+.block{
+  display: inline;
+}
+button{
+  font-family: rubik-light;
+  border:none;
+  border-radius: 3px;
+  color:white;
+  background-color: gray;
+  width: auto;
+  height: 25px;
+  text-decoration: none;
+  cursor:pointer;
+  font-size: 10pt;
+  margin-top: 3px;
+}

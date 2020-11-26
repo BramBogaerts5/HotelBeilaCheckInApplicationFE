@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {GuestService} from '../../services/guest.service';
-import {StateManagerService} from '../../services/state-manager.service';
 import {Title} from '@angular/platform-browser';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Guest} from '../../models/guest.model';

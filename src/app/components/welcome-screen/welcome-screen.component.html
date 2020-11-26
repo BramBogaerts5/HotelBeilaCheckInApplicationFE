@@ -5,7 +5,7 @@
   You can start the check-in-proces by filling in your last name (the one you booked with) and password (the one we gave you in the e-mail).
   After that, we'll make sure your arrival in our hotel will go as smoothly as possible and we'll welcome you as warmly as we can!</p>
   <form class="guestCheckinForm" [formGroup]="guestCheckinForm" (ngSubmit)="guestCheckIn()">
-    <input id="guestLastName" type="text" formControlName="guestLastName" placeholder="Last name"/>
+    <input id="guestLastName" type="text" formControlName="guestLastName" placeholder="Booking name"/>
     <input id="guestPassword" type="password" formControlName="guestPassword" placeholder="Password"/>
     <input class="guestCheckInBtn" id="btnGuestCheckIn" type="submit" value="Check in!"/>
     <p class="errorMessage" *ngIf="inputEmpty">Please enter your booking name and password.</p>
