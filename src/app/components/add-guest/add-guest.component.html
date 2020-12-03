@@ -5,17 +5,19 @@
       <input id="bookingName" type="text" formControlName="bookingName"/>
       <label for="checkInDate">Check In Date</label>
       <input id="checkInDate" type="date" formControlName="checkInDate"/>
+      <label for="payed">Already payed for their stay?</label>
+      <input id="payed" type="checkbox" formControlName="payed"/>
     </div>
     <div class="horizontal floatRight">
       <label for="bookingPrice">Booking price</label>
       <input id="bookingPrice" type="number" formControlName="bookingPrice"/>
       <label for="email">E-mail</label>
       <input id="email" type="email" formControlName="email"/>
-      <label for="payed">Already payed for their stay?</label>
-      <input id="payed" type="checkbox" formControlName="payed"/>
+      <div class="buttonDiv">
+        <input class="addNewGuestBtn" id="addGuestFromBtn" type="submit" value="Submit"/><br><br>
+        <p class="errorMessage" *ngIf="inputEmpty">Please fill in all the fields.</p>
+      </div>
     </div>
-    <input class="addNewGuestBtn" id="addGuestFromBtn" type="submit" value="Submit"/>
-    <p class="errorMessage" *ngIf="inputEmpty">Please fill in all the fields.</p>
   </form>
 </div>
 <div class="spinner" *ngIf="showSpinner"></div>

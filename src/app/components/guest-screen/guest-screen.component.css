@@ -53,6 +53,7 @@
 .page{
   overflow: scroll hidden;
   overflow-x: hidden;
+  padding-bottom: 50px;
 }
 .succesMessage{
   color: green;
@@ -70,12 +71,25 @@
   font-size: 8pt;
   text-align: center;
   margin-top: 20px;
-  margin-bottom: 30px;
 }
 .errorDescription {
   color: red;
   font-size: 8pt;
   text-align: center;
+}
+.chatButton{
+  border:none;
+  border-radius: 3px;
+  color:white;
+  background-color: gray;
+  width: 200px;
+  height: 25px;
+  text-decoration: none;
+  cursor:pointer;
+  font-size: 11pt;
+  position: fixed;
+  right: 0;
+  bottom: 0;
 }
 input{
   display: block;

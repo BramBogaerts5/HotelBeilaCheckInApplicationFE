@@ -59,7 +59,7 @@ export class AddGuestComponent implements OnInit {
       payed = this.addGuestForm.get('payed').value;
     }
 
-    return new Guest(null,bookingName,null,null,email,null,2,'Guest',null, checkInDate, null, bookingPrice,payed,false,null,null,null,null, true);
+    return new Guest(null,bookingName,null,null,email,null,2,'Guest',null, checkInDate, null, bookingPrice,payed,false,null,null,null,null, true, null);
   }
 
   sendGuestInformation(res: HttpResponse<any>){

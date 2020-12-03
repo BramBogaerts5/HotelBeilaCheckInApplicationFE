@@ -19,6 +19,7 @@ import {GuestService} from './services/guest.service';
 import {AdminGuard} from './guards/admin.guard';
 import { AddGuestComponent } from './components/add-guest/add-guest.component';
 import { GuestDetailComponent } from './components/guest-detail/guest-detail.component';
+import { ChatscreenComponent } from './components/chatscreen/chatscreen.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { GuestDetailComponent } from './components/guest-detail/guest-detail.com
     ServerErrorComponent,
     AdminMainPageComponent,
     AddGuestComponent,
-    GuestDetailComponent
+    GuestDetailComponent,
+    ChatscreenComponent,
   ],
   imports: [
     BrowserModule,

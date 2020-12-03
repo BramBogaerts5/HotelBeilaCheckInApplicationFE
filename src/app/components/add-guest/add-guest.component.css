@@ -1,6 +1,6 @@
 .addGuestContainer{
   width: 598px;
-  height: 140px;
+  height: 150px;
   border: gray solid 1px;
   border-bottom: hidden;
   margin-left: auto;
@@ -49,4 +49,8 @@ label{
   cursor:pointer;
   font-size: 10pt;
   margin-top: 3px;
+  float: left;
+}
+.buttonDiv{
+  width: 150px;
 }

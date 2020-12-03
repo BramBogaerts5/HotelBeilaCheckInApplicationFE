@@ -24,6 +24,8 @@ export class GuestScreenComponent implements OnInit {
   btnSendClicked: boolean = false;
   alreadyPaid: boolean = false;
   paidBtnClicked: boolean = false;
+  chatShowing: boolean = false;
+  activeGuest: Guest = null;
 
   constructor(private router: Router, private cookieService: CookieService, private guestService: GuestService, public titleService: Title) { }
 
@@ -46,6 +48,7 @@ export class GuestScreenComponent implements OnInit {
       this.paymentAmount = 'this booking is already paid!';
       this.alreadyPaid = true;
     }
+    this.activeGuest = res;
   }
 
   createForm(){
@@ -120,7 +123,7 @@ export class GuestScreenComponent implements OnInit {
     let payed: boolean = JSON.parse(this.cookieService.get('payed'));
 
     return new Guest(userId,bookingName,userFirstName,userLastName,userEmailAddress,password,roleId, roleCode,
-      null,checkInDate, checkInHour, paymentAmount,payed, checkedIn, birthDate, placeOfBirth, nationality, cardNo, visible);
+      null,checkInDate, checkInHour, paymentAmount,payed, checkedIn, birthDate, placeOfBirth, nationality, cardNo, visible, null);
   }
 
 
@@ -131,5 +134,13 @@ export class GuestScreenComponent implements OnInit {
         window.location.href = res.body.redirectUrl;
       });
     }
+  }
+
+  chat(){
+    this.chatShowing = true;
+  }
+
+  minimalizeClicked(event: boolean){
+    this.chatShowing = event;
   }
 }

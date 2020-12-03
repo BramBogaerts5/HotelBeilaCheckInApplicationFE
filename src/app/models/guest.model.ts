@@ -18,11 +18,12 @@ export class Guest{
   nationality: string;
   cardNo: string;
   visible: boolean;
+  message: string;
 
   constructor(userId: number, bookingName: string, userFirstName: string, userLastName: string, userEmailAddress: string,
               password: string, roleId: number, roleCode: string, token: string, checkInDate: string,
               checkInHour: string, paymentAmount: number, payed: boolean, checkedIn: boolean,
-              birthDate: string, placeOfBirth: string, nationality: string, cardNo: string, visible: boolean){
+              birthDate: string, placeOfBirth: string, nationality: string, cardNo: string, visible: boolean, message: string){
     this.userId = userId;
     this.bookingName = bookingName;
     this.userFirstName = userFirstName;
@@ -42,5 +43,6 @@ export class Guest{
     this.nationality = nationality;
     this.cardNo = cardNo;
     this.visible = visible;
+    this.message = message;
   }
 }

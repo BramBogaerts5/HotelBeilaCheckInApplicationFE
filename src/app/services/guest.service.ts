@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams, HttpResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
-import {Observable, of} from 'rxjs';
+import {Observable, of, pipe} from 'rxjs';
 import {Guest} from '../models/guest.model';
 import {environment} from '../../environments/environment';
 import {catchError} from 'rxjs/internal/operators';
@@ -22,8 +22,8 @@ export class GuestService{
     );
   }
 
-  getGuestByName(bookingName: string):any{
-    return this.http.get<Guest>(`${environment.baseApiUrl}guest/${bookingName}/getByName`).pipe(
+  sendEmail(guest: Guest):Observable<any>{
+    return this.http.post<Guest>(`${environment.baseApiUrl}guest/sendEmail/`, guest, {observe:'response'}).pipe(
       catchError(err => this.handleError(err))
     );
   }

@@ -36,5 +36,7 @@
   <br/>
   <button class="payBtn" (click)="payStay()">Pay for your stay now!</button>
   <p class="paidMessage" *ngIf="alreadyPaid && paidBtnClicked">This booking is already paid!</p>
+  <button class="chatButton" *ngIf="!chatShowing" (click)="chat()">Do you have a question?</button>
+  <app-chatscreen class="chatScreen" *ngIf="chatShowing" (childValueChange)="minimalizeClicked($event)" [activeGuest]="activeGuest"></app-chatscreen>
 </div>
 <div class="spinner" *ngIf="showSpinner"></div>
