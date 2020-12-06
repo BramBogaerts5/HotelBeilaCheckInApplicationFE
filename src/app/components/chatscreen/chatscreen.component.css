@@ -1,0 +1,85 @@
+.chatContainer{
+  width: 200px;
+  height: auto;
+  border: darkgray solid 1px;
+  background-color: lightgray;
+  border-radius: 3px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+.chatMenu{
+  width: 200px;
+  height: 25px;
+  border-bottom: 1px solid darkgray;
+  position: absolute;
+  top:0;
+}
+.minimize{
+  right:2%;
+  top: -80%;
+  position: absolute;
+  font-size: 15pt;
+  font-family: rubik-light;
+  color: darkgray;
+  cursor: pointer;
+}
+.goBack{
+  font-family: rubik-light;
+  font-weight: bold;
+  margin: 2px 0 0 2px;
+  font-family: rubik-light;
+  color: darkgray;
+  cursor: pointer;
+}
+.questionRow{
+  height: auto;
+  border-bottom: 1px solid darkgray;
+}
+.questionCollection{
+  margin-top: 25px;
+  height: auto;
+}
+.menuText{
+  font-family: rubik-light;
+  font-weight: bold;
+  margin: 2px 0 0 2px;
+}
+.question{
+  font-size: 11pt;
+  padding: 5px 2px 5px 2px;
+  margin: 0;
+  cursor: pointer;
+}
+.answerField{
+  padding: 10px 2px 5px 2px;
+}
+.answerInput{
+  height: auto;
+  margin-top: 25px;
+}
+.inputText{
+  padding: 5px 2px 5px 2px;
+}
+#question{
+  width: 180px;
+  height: 100px;
+  margin: 0px 5px 0px 5px;
+  word-break: break-word;
+}
+#questionButton{
+  border:none;
+  color:white;
+  background-color: gray;
+  width: 50px;
+  text-decoration: none;
+  cursor:pointer;
+  font-size: 11pt;
+  margin: 0px 0px 5px 5px;
+}
+.succesMessage{
+  color: green;
+  font-size: 8pt;
+  text-align: center;
+  margin-top: 0px;
+}

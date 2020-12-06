@@ -1,0 +1,37 @@
+<div class="chatContainer">
+  <div class="chatMenu">
+    <p class="menuText" *ngIf="!questionClicked&&!openQuestionClicked">What is your question?</p><p class="goBack" (click)="goBack()" *ngIf="questionClicked||openQuestionClicked">Go back</p><p class="minimize" (click)="minimize()">X</p>
+  </div>
+  <div class="questionCollection" *ngIf="!questionClicked&&!openQuestionClicked">
+    <div class="questionRow" (click)="clickQuestion1()">
+      <p class="question">What if I don't know my arrival time just yet?</p>
+    </div>
+    <div class="questionRow" (click)="clickQuestion2()">
+      <p class="question">Can I cancel my booking?</p>
+    </div>
+    <div class="questionRow" (click)="clickQuestion3()">
+      <p class="question">Can I store my bicycle in the hotel?</p>
+    </div>
+    <div class="questionRow" (click)="clickQuestion4()">
+      <p class="question">Where can I park?</p>
+    </div>
+    <div class="questionRow" (click)="clickQuestion5()">
+      <p class="question">Can I have lunch or dinner in the hotel?</p>
+    </div>
+    <div class="questionRow" (click)="clickQuestion6()">
+      <p class="question">My question is not in this list...</p>
+    </div>
+  </div>
+  <div class="answerField" *ngIf="questionClicked">
+    <p>{{answer}}</p>
+  </div>
+  <div class="answerInput" *ngIf="openQuestionClicked">
+    <p class="inputText">Please fill in your question below and we'll answer as quickly as possible</p>
+    <form [formGroup]="questionForm" (ngSubmit)="askQuestion()">
+      <p class="succesMessage" *ngIf="messagesent">Message sent!</p>
+      <textarea id="question" type="text" formControlName="question"></textarea>
+      <input id="questionButton" type="submit" value="Send"/>
+    </form>
+  </div>
+</div>
+<div class="spinner" *ngIf="showSpinner"></div>
