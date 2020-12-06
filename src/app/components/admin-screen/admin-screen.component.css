@@ -1,16 +1,6 @@
 .beilaLogo{
   width: 500px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   margin-top: 75px;
-}
-.center{
-  position: absolute;
-  left: 50%;
-  top: 35%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 .adminLoginForm{
   width: 100%;
@@ -25,42 +15,32 @@
   cursor:pointer;
   font-size: 11pt;
 }
-.welcomeText{
-  text-align: center;
-  margin-top: -50px;
-  margin-bottom: 50px;
+
+@media screen and (max-width: 600px) {
+  .beilaLogo{
+    width: 400px;
+  }
+  input{
+    width: 80%
+  }
 }
-.errorMessage{
-  color: red;
-  font-size: 8pt;
-  text-align: center;
+
+@media screen and (max-width: 500px) {
+  .beilaLogo{
+    width: 300px;
+  }
+  input{
+    width: 80%
+  }
 }
-.footer{
-  background-color: gray;
-  color: white;
-  width: 100%;
-  height: 30px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  padding-left: 10px;
-}
-.footerText{
-  position: absolute;
-  top:15%;
-  text-decoration: none;
-  color: white;
-  font-family: rubik-light;
-}
-input{
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-  width: 300px;
-  height: 30px;
-  margin-bottom: 5px;
-  font-size: 12pt;
-  border: 1px solid gray;
-  border-radius: 3px;
+
+@media screen and (max-width: 500px) {
+  .beilaLogo{
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  input{
+    width: 100%
+  }
+
 }

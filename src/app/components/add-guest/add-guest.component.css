@@ -7,14 +7,19 @@
   margin-right: auto;
 }
 .errorMessage{
-  color: red;
-  font-size: 8pt;
-  text-align: center;
   margin-top: 2px;
 }
 input{
   display: block;
+  margin-right: 0;
+  margin-left: 0;
+  text-align: left;
   width: 250px;
+  height: auto;
+  margin-bottom: 0;
+  font-size: 12pt;
+  border: 1px solid gray;
+  border-radius: 3px;
 }
 .horizontal{
   display: inline-block;
@@ -33,6 +38,7 @@ label{
   margin-top: 8px;
   margin-right: auto;
   margin-left: auto;
+  text-align: center;
 }
 #payed{
   width: auto;
@@ -53,4 +59,25 @@ label{
 }
 .buttonDiv{
   width: 150px;
+}
+
+@media screen and (max-width: 700px) {
+  .addGuestContainer{
+    width: 99.7%;
+  }
+}
+@media screen and (max-width: 620px) {
+  .addGuestContainer{
+    width: 99.7%;
+    height: 300px;
+  }
+  .horizontal{
+    display: block;
+    width: auto;
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  .floatRight{
+    float: none;
+  }
 }

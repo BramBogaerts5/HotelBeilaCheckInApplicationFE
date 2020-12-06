@@ -1,29 +1,12 @@
 .beilaLogo{
   width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: 40px;
-}
-.center{
-  position: absolute;
-  left: 50%;
-  top: 35%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
 .centerText{
   display: block;
   text-align:center;
   margin-top:10px;
   font-family: rubik-light;
-}
-.welcomeText{
-  text-align: center;
-  margin-top: -50px;
-  margin-bottom: 50px;
-  margin-left: 10vw;
-  margin-right: 10vw;
 }
 .checkInBtn{
   border:none;
@@ -51,8 +34,6 @@
   transform: translate(-50%, -50%);
 }
 .page{
-  overflow: scroll hidden;
-  overflow-x: hidden;
   padding-bottom: 50px;
 }
 .succesMessage{
@@ -60,11 +41,6 @@
   font-size: 8pt;
   text-align: center;
   margin-top: 5px;
-}
-.errorMessage{
-  color: red;
-  font-size: 8pt;
-  text-align: center;
 }
 .paidMessage{
   color: red;
@@ -91,18 +67,21 @@
   right: 0;
   bottom: 0;
 }
-input{
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
-  width: 300px;
-  height: 30px;
-  margin-bottom: 5px;
-  font-size: 12pt;
-  border: 1px solid gray;
-  border-radius: 3px;
-}
 form{
   margin-top: -30px;
+}
+
+@media screen and (max-width: 650px) {
+  .payBtn{
+    margin-bottom: 200px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .payBtn{
+    margin-bottom: 200px;
+  }
+  input{
+    width: auto;
+  }
 }

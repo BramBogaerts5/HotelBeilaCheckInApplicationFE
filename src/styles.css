@@ -5,6 +5,18 @@
 p{
   font-family: "rubik-light";
 }
+input{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  width: 300px;
+  height: 30px;
+  margin-bottom: 5px;
+  font-size: 12pt;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
 .spinner {
   border: 10px solid #6ca33640;
   border-top: 10px solid #6ca336;
@@ -20,6 +32,31 @@ p{
 .newLine {
   display: block;
   clear: both;
+}
+.page{
+  overflow: scroll hidden;
+  overflow-x: hidden;
+}
+.beilaLogo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.center{
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.welcomeText{
+  text-align: center;
+  margin: -50px 10vw 50px 10vw;
+}
+.errorMessage{
+  color: red;
+  font-size: 8pt;
+  text-align: center;
 }
 @keyframes spin {
   0% { transform: rotate(0deg) }
