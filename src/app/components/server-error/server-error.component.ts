@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {StateManagerService} from '../services/state-manager.service';
+import {StateManagerService} from '../../services/state-manager.service';
 import {Title} from '@angular/platform-browser';
 
 @Component({

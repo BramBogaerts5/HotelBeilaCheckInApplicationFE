@@ -2,7 +2,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {WelcomeScreenComponent} from '../components/welcome-screen/welcome-screen.component';
 import {GuestScreenComponent} from '../components/guest-screen/guest-screen.component';
 import {NgModule} from '@angular/core';
-import {ServerErrorComponent} from '../server-error/server-error.component';
+import {ServerErrorComponent} from '../components/server-error/server-error.component';
 import {GuestGuard} from '../guards/guest.guard';
 import {AdminScreenComponent} from '../components/admin-screen/admin-screen.component';
 import {AdminMainPageComponent} from '../components/admin-main-page/admin-main-page.component';

@@ -12,7 +12,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LoginService} from './services/login.service';
 import {StateManagerService} from './services/state-manager.service';
 import {TokenInterceptorService} from './services/token-interceptor.service';
-import { ServerErrorComponent } from './server-error/server-error.component';
+import { ServerErrorComponent } from './components/server-error/server-error.component';
 import {GuestGuard} from './guards/guest.guard';
 import { AdminMainPageComponent } from './components/admin-main-page/admin-main-page.component';
 import {GuestService} from './services/guest.service';
